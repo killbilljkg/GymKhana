@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GymKhana</title>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  body {
+    background: #0b0b0b;
+    color: #ffffff;
+  }
+
+
+  section {
+    height: 100vh;
+    padding: 4rem 6%;
+  }
+
+  /* === HEADER === */
+.gx-header {
+  background: #0c1f18;
+  padding: 16px 5vw;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.gx-header-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+/* Logo */
+.gx-logo {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Nav */
+.gx-nav {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+}
+
+.gx-nav a,
+.gx-dropdown span {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 14px;
+  transition: opacity 0.2s ease;
+}
+
+.gx-nav a:hover,
+.gx-dropdown span:hover {
+  opacity: 1;
+}
+
+/* Actions */
+.gx-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.gx-link {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.gx-btn-primary {
+  background: #2f6f55;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.gx-btn-primary:hover {
+  background: #3c8a6a;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .gx-nav {
+    display: none;
+  }
+}
+
+  /* === FOOTER === */
+.gx-footer {
+  background: radial-gradient(circle at top, #1a1816, #000 70%);
+  color: #fff;
+  padding: 140px 6vw 40px;
+}
+.gx-footer {
+  position: relative;
+  z-index: 5;
+  margin-top: 140px;
+  padding-top: 140px;
+  overflow: hidden;
+}
+
+/* CTA */
+.gx-footer-cta {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 140px;
+}
+
+.gx-footer-cta h2 {
+  font-size: 42px;
+  margin-bottom: 16px;
+}
+
+.gx-footer-cta p {
+  opacity: 0.8;
+  margin-bottom: 32px;
+}
+
+.gx-footer-form {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.gx-footer-form input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  padding: 12px;
+  width: 320px;
+  outline: none;
+}
+
+.gx-footer-form button {
+  background: #2f6f55;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.gx-footer-cta small {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.gx-footer-cta a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* LINKS */
+.gx-footer-links {
+  display: grid;
+  grid-template-columns: 1.2fr repeat(5, 1fr);
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.gx-footer-logo {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.gx-footer-col h4 {
+  font-size: 14px;
+  margin-bottom: 14px;
+  opacity: 0.9;
+}
+
+.gx-footer-col a {
+  display: block;
+  font-size: 13px;
+  opacity: 0.6;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.gx-footer-col a:hover {
+  opacity: 1;
+}
+
+/* BOTTOM */
+.gx-footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+.gx-footer-social {
+  display: flex;
+  gap: 14px;
+}
+
+.gx-footer-social a {
+  color: #fff;
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+/* MOBILE */
+@media (max-width: 1024px) {
+  .gx-footer-links {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gx-footer-form {
+    flex-direction: column;
+  }
+
+  .gx-footer-form input {
+    width: 100%;
+  }
+
+  .gx-footer-bottom {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+
+
+  /* ================= HERO ================= */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 3.4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #cfcfcf;
+    max-width: 520px;
+    margin-bottom: 2.2rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn {
+    padding: 0.85rem 1.7rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn.primary {
+    background-color: #18b67d;
+    color: #ffffff;
+  }
+
+  .btn.secondary {
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+  }
+
+  .hero img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 18px;
+  }
+
+  /* ================= STORY ================= */
+  .story {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    align-items: center;
+    background: linear-gradient(180deg, #0b0b0b, #0f1f18);
+  }
+
+  .card {
+    height: 75%;
+    background: linear-gradient(180deg, #111, #0b0b0b);
+    border-radius: 22px;
+    padding: 2.5rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card.center {
+    background: linear-gradient(180deg, #101d17, #0b0b0b);
+    border: 1px solid rgba(24,182,125,0.25);
+    transform: translateY(-10px);
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: #18b67d;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+
+  .card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    color: #cfcfcf;
+    line-height: 1.65;
+  }
+
+  .card img {
+    margin-top: 1rem;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+
+/* ================= USERS / BENEFITS ================= */
+.users {
+  background: radial-gradient(circle at top, #0f1f18, #0b0b0b);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.users-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.users-header h2 {
+  font-size: 2.6rem;
+  margin: 0.8rem 0;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.9rem;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.benefit-card {
+  background: linear-gradient(180deg, #111, #0b0b0b);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-6px);
+}
+
+.benefit-card img {
+  width: 40%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.benefit-content {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.benefit-content h4 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+/* ================= USERS GET ================= */
+
+.users-split {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: radial-gradient(circle at top, #0f2a22, #0b0b0b);
+}
+
+.users-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.users-content {
+  padding: 5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eyebrow {
+  letter-spacing: 0.15em;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.users-content h2 {
+  font-size: 3rem;
+  margin: 0.6rem 0 1rem;
+}
+
+.subtitle {
+  opacity: 0.85;
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefits-list li {
+  margin-bottom: 1.8rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.benefits-list h3 {
+  font-size: 1.3rem;
+  margin: 0.4rem 0;
+}
+
+.benefits-list p {
+  opacity: 0.8;
+  max-width: 460px;
+}
+.benefits-list.icons li {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 1.2rem;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+.benefits-list.icons img {
+  width: 36px;
+  height: 36px;
+  opacity: 0.9;
+  filter: invert(1);
+}
+
+.benefits-list.icons h3 {
+  font-size: 1.25rem;
+  margin: 0.35rem 0;
+}
+
+.benefits-list.icons p {
+  opacity: 0.8;
+  max-width: 460px;
+}
+
+  /* ================= OWNERS ================= */
+  .owners-spine {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  background: radial-gradient(circle at top, #1b1b1b, #050505);
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  opacity: 0.6;
+}
+
+.owners-spine h2 {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  margin: 1rem 0;
+}
+
+.intro {
+  max-width: 620px;
+  margin: 0 auto 4rem;
+  opacity: 0.85;
+}
+
+.spine-layout {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto 4rem;
+  align-items: center;
+}
+
+.spine-line {
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #fff, transparent);
+  opacity: 0;
+  transform: scaleY(0);
+  transition: 0.8s ease;
+}
+
+.spine-line.active {
+  opacity: 0.25;
+  transform: scaleY(1);
+}
+
+.spine-side {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.spine-item {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.6s ease;
+}
+
+.spine-item svg {
+  width: 28px;
+  height: 28px;
+  stroke: white;
+  stroke-width: 1.5;
+  fill: none;
+  opacity: 0.8;
+}
+
+.spine-item h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.spine-item p {
+  opacity: 0.75;
+  max-width: 320px;
+}
+
+.spine-side.right .spine-item {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.spine-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.owners-cta {
+  display: inline-block;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.35);
+  text-decoration: none;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.owners-cta:hover {
+  background: white;
+  color: black;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .spine-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .spine-line {
+    display: none;
+  }
+
+  .spine-side.right .spine-item {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+  /* ===============================
+   OWNERS – FLOW SECTION (OPTION 2)
+================================ */
+.owners-flow-section {
+  padding: 100px 6vw;
+  background: #071c16;
+  color: #fff;
+}
+
+.owners-flow-container {
+  display: flex;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.owners-flow-image {
+  flex: 1;
+}
+
+.owners-flow-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.owners-flow-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.owners-flow-content .flow-title {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.owners-flow-content .flow-sub {
+  font-size: 16px;
+  opacity: 0.85;
+}
+
+.flow-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.flow-item img {
+  width: 40px;
+  height: 40px;
+}
+
+.flow-item h3 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.flow-item p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* REVEAL ANIMATION */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .owners-flow-container {
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+
+  .owners-flow-image img {
+    height: 300px;
+  }
+}
+
+  /* ===== Process ===== */
+
+  .process-section {
+  padding: 120px 6vw;
+  background: radial-gradient(circle at top, #111 0%, #000 60%);
+  color: #fff;
+  text-align: center;
+}
+
+.process-eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
+.process-title {
+  font-size: 48px;
+  margin: 16px 0;
+}
+
+.process-subtitle {
+  max-width: 720px;
+  margin: 0 auto 80px;
+  opacity: 0.75;
+}
+
+/* STEPS */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.process-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 18px;
+  padding: 50px 30px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.process-card:hover,
+.process-card.active {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-12px);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.process-icon {
+  font-size: 42px;
+  margin-bottom: 24px;
+  transition: transform 0.4s ease;
+}
+
+.process-card:hover .process-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.process-card h3 {
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.process-card p {
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+/* CTA */
+.process-cta {
+  margin-top: 80px;
+}
+
+.process-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.process-btn span {
+  transition: transform 0.3s ease;
+}
+
+.process-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.process-btn:hover span {
+  transform: translateX(6px);
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === STEPS === */
+
+.gx-unified-section {
+  background: radial-gradient(circle at top, #1a1816, #000 70%);
+  color: #fff;
+  padding: 140px 6vw;
+}
+
+/* COMMON */
+.gx-eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
+.gx-title {
+  font-size: 46px;
+  margin: 16px 0;
+}
+
+.gx-subtitle {
+  max-width: 760px;
+  margin: 0 auto 80px;
+  opacity: 0.75;
+}
+
+/* PROCESS */
+.gx-process {
+  text-align: center;
+  margin-bottom: 160px;
+}
+
+.gx-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+.gx-step {
+  padding: 30px;
+}
+
+.gx-icon {
+  font-size: 40px;
+  margin-bottom: 24px;
+  transition: transform 0.3s ease;
+}
+
+.gx-step:hover .gx-icon {
+  transform: scale(1.2);
+}
+
+.gx-step h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.gx-step p {
+  opacity: 0.75;
+  font-size: 15px;
+}
+
+/* FEATURES */
+.gx-features {
+  text-align: center;
+}
+
+.gx-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 80px;
+}
+
+.gx-feature-card {
+  background: rgba(255,255,255,0.04);
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.4s ease, background 0.4s ease;
+}
+
+.gx-feature-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255,255,255,0.08);
+}
+
+.gx-feature-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.gx-feature-card h4 {
+  font-size: 18px;
+  margin: 18px 18px 8px;
+}
+
+.gx-feature-card p {
+  font-size: 14px;
+  opacity: 0.75;
+  margin: 0 18px 22px;
+}
+
+/* CTA */
+.gx-cta {
+  margin-top: 80px;
+}
+
+.gx-btn {
+  display: inline-flex;
+  gap: 10px;
+  padding: 14px 30px;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.gx-btn span {
+  transition: transform 0.3s ease;
+}
+
+.gx-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.gx-btn:hover span {
+  transform: translateX(6px);
+}
+
+/* MOBILE */
+@media (max-width: 1024px) {
+  .gx-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .gx-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gx-title {
+    font-size: 36px;
+  }
+}
+
+/* === What users get === */
+/* ===== USERS ALT ===== */
+.users-alt-section {
+  position: relative;
+  z-index: 10;
+  margin-top: 120px;   /* <-- FIX */
+}
+.gx-unified-section {
+  position: relative;
+  z-index: 1;
+  overflow: visible;   /* <-- IMPORTANT */
+}
+.users-alt-section {
+  padding-top: 120px;
+}
+/* PREVIOUS SECTION */
+.gx-unified-section {
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+/* USERS SECTION */
+.users-alt-section {
+  position: relative;
+  z-index: 10;
+  margin-top: 120px;
+  padding: 120px 6vw;
+  background: #0c1f18;
+  color: #fff;
+}
+
+.users-alt-section {
+  background: #0c1f18;
+  color: #fff;
+  padding: 120px 6vw;
+}
+
+.users-eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
+.users-title {
+  font-size: 48px;
+  margin: 16px 0;
+}
+
+.users-desc {
+  max-width: 700px;
+  opacity: 0.75;
+  margin-bottom: 80px;
+}
+
+.users-alt-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.users-alt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.users-alt-item {
+  padding-left: 40px;
+  position: relative;
+  opacity: 0.5;
+}
+
+.users-alt-item span {
+  position: absolute;
+  left: 0;
+  top: 4px;
+}
+
+.users-alt-item.active,
+.users-alt-item:hover {
+  opacity: 1;
+}
+
+.users-alt-preview {
+  border-radius: 24px;
+  overflow: hidden;
+  height: 420px;
+}
+
+.users-alt-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+ /* === Newww pricing === */
+
+ /* === MODEL + PRICING === */
+.gx-model-pricing {
+  background: radial-gradient(circle at top, #1a1816, #000 70%);
+  color: #fff;
+  padding: 140px 6vw;
+}
+
+/* MODEL */
+.gx-model {
+  text-align: center;
+}
+
+.gx-model-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 80px;
+}
+
+.gx-model-card {
+  background: rgba(255,255,255,0.04);
+  border-radius: 22px;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.gx-model-card:hover {
+  transform: translateY(-10px);
+}
+
+.gx-model-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.gx-model-card h3 {
+  font-size: 20px;
+  margin: 20px;
+}
+
+.gx-model-card p {
+  font-size: 14px;
+  opacity: 0.75;
+  margin: 0 20px 24px;
+}
+
+/* DIVIDER */
+.gx-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+  margin: 140px 0;
+}
+/* === PRICING UPGRADE === */
+
+.gx-pricing {
+  text-align: center;
+}
+
+.gx-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  margin-top: 80px;
+}
+
+/* CARD */
+.gx-price-card {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.02)
+  );
+  border-radius: 28px;
+  padding: 48px 40px;
+  text-align: left;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gx-price-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+/* PREMIUM */
+.gx-price-card.highlight {
+  border: 1px solid rgba(255,255,255,0.3);
+  background: linear-gradient(
+    180deg,
+    rgba(47,122,90,0.35),
+    rgba(0,0,0,0.4)
+  );
+}
+
+/* BADGE */
+.gx-badge {
+  position: absolute;
+  top: -14px;
+  left: 40px;
+  background: #2f7a5a;
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* HEAD */
+.gx-plan-head h3 {
+  font-size: 22px;
+}
+
+.gx-plan-note {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 6px;
+}
+
+/* PRICE */
+
+/* === CENTER ALIGN PRICING TEXT === */
+
+.gx-pricing {
+  text-align: center;
+}
+
+.gx-price-card {
+  text-align: center;
+}
+
+/* Center price block */
+.gx-price-wrap {
+  justify-content: center;
+}
+
+/* Center feature list */
+.gx-features {
+  display: inline-block;
+  text-align: left; /* keeps check icons aligned nicely */
+}
+
+/* Center buttons */
+.gx-price-card .gx-btn {
+  margin: 0 auto;
+}
+
+/* Center badge */
+.gx-badge {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.gx-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 32px 0;
+}
+
+.gx-currency {
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+
+.gx-price {
+  font-size: 56px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.gx-duration {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+/* FEATURES */
+.gx-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 36px;
+}
+
+.gx-features li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.gx-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #4fd1a5;
+}
+
+/* BUTTONS */
+.gx-btn.outline {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  text-decoration: none;
+}
+
+.gx-btn.outline:hover {
+  background: #fff;
+  color: #000;
+}
+
+
+
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .gx-model-grid,
+  .gx-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gx-divider {
+    margin: 100px 0;
+  }
+}
+
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width: 1000px) {
+    section {
+      height: auto;
+    }
+
+    .hero,
+    .story,
+    .benefits {
+      grid-template-columns: 1fr;
+    }
+
+    .card.center {
+      transform: none;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+    <header class="gx-header">
+  <div class="gx-header-inner">
+    <!-- Logo -->
+    <div class="gx-logo">Logo</div>
+
+    <!-- Navigation -->
+    <nav class="gx-nav">
+      <a href="#">Find gyms</a>
+      <a href="#">For users</a>
+      <a href="#">For owners</a>
+      <div class="gx-dropdown">
+        <span>More ▾</span>
+      </div>
+    </nav>
+
+    <!-- Actions -->
+    <div class="gx-actions">
+      <a href="#" class="gx-link">Sign in</a>
+      <a href="#" class="gx-btn-primary">Join</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>ONE MEMBERSHIP.<br>UNLIMITED GYMS.<br>ANYWHERE.</h1>
+    <p>Work out at any registered gym using a single membership. GymKhana connects users and gym owners through one smart platform.</p>
+    <div class="hero-actions">
+      <button class="btn primary">Join</button>
+      <button class="btn secondary">List Your Gym</button>
+    </div>
+  </div>
+  <img src="hero-img.png" />
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="card">
+    <span class="tag">Problem</span>
+    <h3>Fitness locked to one city</h3>
+    <p>Your membership stops working when life moves.</p>
+    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" />
+  </div>
+
+  <div class="card center">
+    <span class="tag">Reality</span>
+    <h3>Life doesn’t stay still</h3>
+    <p>Moves, travel, and work changes break your routine.</p>
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" />
+  </div>
+
+  <div class="card">
+    <span class="tag">Solution</span>
+    <h3>GymKhana moves with you</h3>
+    <p>One plan. Unlimited gyms. Anywhere.</p>
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" />
+  </div>
+</section>
+
+<!-- USERS -->
+<section class="users">
+    <div class="users-header">
+      <span>USERS</span>
+      <h2>Freedom to work out anywhere</h2>
+      <p>Built for people whose lives don’t stay still</p>
+    </div>
+  
+    <div class="benefits">
+      <div class="benefit-card">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+        <div class="benefit-content">
+          <span>Benefit</span>
+          <h4>One membership for multiple gyms</h4>
+          <p>Access all registered gyms with a single plan.</p>
+        </div>
+      </div>
+  
+      <div class="benefit-card">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978">
+        <div class="benefit-content">
+          <span>Benefit</span>
+          <h4>No need to cancel or repurchase</h4>
+          <p>Keep your membership even when you move.</p>
+        </div>
+      </div>
+  
+      <div class="benefit-card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+        <div class="benefit-content">
+          <span>Benefit</span>
+          <h4>Seamless check-ins across locations</h4>
+          <p>Digital access to gyms in the network.</p>
+        </div>
+      </div>
+  
+      <div class="benefit-card">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+        <div class="benefit-content">
+          <span>Benefit</span>
+          <h4>Transparent usage tracking</h4>
+          <p>See exactly where and when you work out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<!-- users get -->
+
+<section class="users-split">
+    <div class="users-image">
+      <img src="img/users-main.jpg" alt="People working out and working remotely" />
+    </div>
+  
+    <div class="users-content">
+      <span class="eyebrow">USERS</span>
+      <h2>What users get</h2>
+      <p class="subtitle">
+        GymKhana is built for working professionals, students, travelers,
+        and anyone whose life moves.
+      </p>
+  
+      <ul class="benefits-list icons">
+        <li>
+          <img src="icons/flexibility.svg" alt="" />
+          <div>
+            <span class="tag">Flexibility</span>
+            <h3>One membership for multiple gyms</h3>
+            <p>Work out at any registered gym without separate plans.</p>
+          </div>
+        </li>
+      
+        <li>
+          <img src="icons/convenience.svg" alt="" />
+          <div>
+            <span class="tag">Convenience</span>
+            <h3>No need to cancel or repurchase plans</h3>
+            <p>Keep your membership active across all locations.</p>
+          </div>
+        </li>
+      
+        <li>
+          <img src="icons/location.svg" alt="" />
+          <div>
+            <span class="tag">Access</span>
+            <h3>Gyms across different locations</h3>
+            <p>Your membership works wherever you are.</p>
+          </div>
+        </li>
+      
+        <li>
+          <img src="icons/analytics.svg" alt="" />
+          <div>
+            <span class="tag">Clarity</span>
+            <h3>Transparent usage tracking</h3>
+            <p>Know exactly how and where you’re using your membership.</p>
+          </div>
+        </li>
+      </ul>
+      
+    </div>
+  </section>
+  
+
+  <!-- OWNERS -->
+  <section class="owners-spine" id="owners">
+    <span class="eyebrow">OWNERS</span>
+  
+    <h2>
+      More members.<br />
+      More revenue.<br />
+      No extra marketing.
+    </h2>
+  
+    <p class="intro">
+      GymKhana brings you a steady stream of users who want to work out.
+      You earn based on actual visits — nothing more.
+    </p>
+  
+    <div class="spine-layout">
+      <!-- LEFT -->
+      <div class="spine-side left">
+        <div class="spine-item reveal">
+          <svg viewBox="0 0 24 24"><path d="M12 1v22M5 6h10a4 4 0 010 8H9a4 4 0 000 8h10" /></svg>
+          <div>
+            <h4>Get paid daily</h4>
+            <p>Receive earnings every day based on gym visits.</p>
+          </div>
+        </div>
+  
+        <div class="spine-item reveal">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5v14" /></svg>
+          <div>
+            <h4>Earn based on actual visits</h4>
+            <p>One visit means one day of payment.</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- CENTER SPINE -->
+      <div class="spine-line"></div>
+  
+      <!-- RIGHT -->
+      <div class="spine-side right">
+        <div class="spine-item reveal">
+          <svg viewBox="0 0 24 24"><path d="M7 10V7a5 5 0 0110 0v3M5 10h14v9H5z" /></svg>
+          <div>
+            <h4>No long-term lock-ins</h4>
+            <p>You control participation and adjust anytime.</p>
+          </div>
+        </div>
+  
+        <div class="spine-item reveal">
+          <svg viewBox="0 0 24 24"><path d="M4 19V5m6 14V9m6 10V3" /></svg>
+          <div>
+            <h4>Fair & transparent payouts</h4>
+            <p>See exactly what you earn and when.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <a href="#" class="owners-cta">Discover →</a>
+  </section>
+  
+ 
+ <!-- OWNERS benefits-->
+ <section class="owners-flow-section section">
+    <div class="owners-flow-container">
+      <!-- LEFT: BENEFITS LIST  -->
+
+      <div class="owners-flow-content">
+        <h2 class="flow-title reveal">
+          GYMKHANA TURNS UNUSED HOURS INTO REVENUE
+        </h2>
+        <p class="flow-sub reveal">
+          More walk-ins without ads. Better space usage. Clear earnings.
+        </p>
+  
+        <div class="flow-item left reveal">
+          <img src="icons/walkin.svg" />
+          <div>
+            <h3>More Walk-ins</h3>
+            <p>Access a network of active users looking for gyms</p>
+          </div>
+        </div>
+  
+        <div class="flow-item right reveal">
+          <img src="icons/space.svg" />
+          <div>
+            <h3>Better Utilization</h3>
+            <p>Fill empty hours with members who actually show up</p>
+          </div>
+        </div>
+  
+        <div class="flow-item left reveal">
+          <img src="icons/marketing.svg" />
+          <div>
+            <h3>No Marketing Spend</h3>
+            <p>GymKhana handles user acquisition for you</p>
+          </div>
+        </div>
+  
+        <div class="flow-item right reveal">
+          <img src="icons/attendance.svg" />
+          <div>
+            <h3>Digital Attendance</h3>
+            <p>Know exactly who visits and when</p>
+          </div>
+        </div>
+      </div>
+
+      
+  
+      <!-- RIGHT: Image-->
+      <div class="owners-flow-image reveal">
+        <img src="images/gym-benefits.jpg" alt="GymKhana Benefits" />
+      </div>
+    </div>
+  </section>
+  
+  
+<!-- process-->
+
+<section class="process-section" id="process">
+    <span class="process-eyebrow">PROCESS</span>
+  
+    <h2 class="process-title">How GymKhana Works</h2>
+    <p class="process-subtitle">
+      Gym owners register. Users join. Visits get tracked.
+      Payments happen daily. No confusion, no delays.
+    </p>
+  
+    <div class="process-steps">
+      <div class="process-card active" data-step="1">
+        <div class="process-icon">🔗</div>
+        <h3>Owners register their gyms</h3>
+        <p>Gyms join the GymKhana network and set up their profiles.</p>
+      </div>
+  
+      <div class="process-card" data-step="2">
+        <div class="process-icon">🎟️</div>
+        <h3>Users purchase a membership</h3>
+        <p>Members buy one plan and access all registered gyms.</p>
+      </div>
+  
+      <div class="process-card" data-step="3">
+        <div class="process-icon">✅</div>
+        <h3>Attendance gets tracked</h3>
+        <p>Digital check-ins record every visit across the platform.</p>
+      </div>
+    </div>
+  
+    <div class="process-cta">
+      <button class="process-btn">
+        Explore <span>→</span>
+      </button>
+    </div>
+  </section>
+  
+  
+     <!-- newwww price -->
+  
+     <section class="gx-model-pricing">
+
+        <!-- MODEL -->
+        <div class="gx-model">
+          <span class="gx-eyebrow">MODEL</span>
+          <h2 class="gx-title">A true win-win</h2>
+          <p class="gx-subtitle">
+            GymKhana creates a shared fitness ecosystem where everyone benefits
+            fairly and transparently.
+          </p>
+      
+          <div class="gx-model-grid">
+            <div class="gx-model-card">
+              <img src="images/model-users.jpg" alt="">
+              <h3>Users gain freedom</h3>
+              <p>Work out anywhere without losing your membership or wasting money.</p>
+            </div>
+      
+            <div class="gx-model-card">
+              <img src="images/model-owners.jpg" alt="">
+              <h3>Gym owners gain revenue</h3>
+              <p>Earn from every visit without marketing or promotions.</p>
+            </div>
+      
+            <div class="gx-model-card">
+              <img src="images/model-payments.jpg" alt="">
+              <h3>Payments stay fair</h3>
+              <p>No one pays for what they don’t use. Everyone earns what they deserve.</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- DIVIDER -->
+        <div class="gx-divider"></div>
+      
+        <!-- PRICING -->
+        <div class="gx-pricing">
+            <span class="gx-eyebrow">PLANS</span>
+            <h2 class="gx-title">Simple pricing</h2>
+            <p class="gx-subtitle">Choose a plan that fits your routine</p>
+          
+            <div class="gx-pricing-grid">
+          
+              <!-- BASIC -->
+              <div class="gx-price-card">
+                <div class="gx-plan-head">
+                  <h3>Basic</h3>
+                  <p class="gx-plan-note">For regular gym users</p>
+                </div>
+          
+                <div class="gx-price-wrap">
+                  <span class="gx-currency">$</span>
+                  <span class="gx-price">19</span>
+                  <span class="gx-duration">/month</span>
+                </div>
+          
+                <ul class="gx-features">
+                  <li>Access all registered gyms</li>
+                  <li>Seamless check-ins</li>
+                  <li>Usage tracking</li>
+                </ul>
+          <div><a href="#" class="gx-btn outline">Get started</a></div>
+                
+              </div>
+          
+              <!-- PREMIUM -->
+              <div class="gx-price-card highlight">
+                <div class="gx-badge">Most popular</div>
+          
+                <div class="gx-plan-head">
+                  <h3>Premium</h3>
+                  <p class="gx-plan-note">For frequent & power users</p>
+                </div>
+          
+                <div class="gx-price-wrap">
+                  <span class="gx-currency">$</span>
+                  <span class="gx-price">29</span>
+                  <span class="gx-duration">/month</span>
+                </div>
+          
+                <ul class="gx-features">
+                  <li>Everything in Basic</li>
+                  <li>Priority gym access</li>
+                  <li>Advanced analytics</li>
+                  <li>Exclusive member events</li>
+                  <li>Dedicated support</li>
+                </ul>
+          <div><a href="#" class="gx-btn primary">Join premium</a></div>
+                
+              </div>
+          
+            </div>
+          </div>
+          
+      </section>
+
+   <!-- <section class="users section">
+    <div class="users-header">
+      <span class="eyebrow">USERS</span>
+      <h2>Freedom to work out anywhere</h2>
+      <p>Built for people whose lives don’t stay still</p>
+    </div>
+  
+    <div class="benefits-rail">
+      <div class="benefit-line">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" />
+        <div>
+          <h3>One membership. Multiple gyms.</h3>
+          <p>Access every registered gym with a single plan.</p>
+        </div>
+      </div>
+  
+      <div class="benefit-line">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" />
+        <div>
+          <h3>No need to cancel or repurchase</h3>
+          <p>Your membership moves with you when life does.</p>
+        </div>
+      </div>
+  
+      <div class="benefit-line">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" />
+        <div>
+          <h3>Seamless check-ins everywhere</h3>
+          <p>Digital access to gyms across the network.</p>
+        </div>
+      </div>
+  
+      <div class="benefit-line">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" />
+        <div>
+          <h3>Transparent usage tracking</h3>
+          <p>Know exactly where and when you work out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+   -->
+
+   
+<!-- Footer -->
+
+<footer class="gx-footer">
+    <!-- CTA -->
+    <div class="gx-footer-cta">
+      <h2>STAY UPDATED ON GYMKHANA</h2>
+      <p>Get the latest news, tips, and exclusive offers delivered to your inbox</p>
+  
+      <form class="gx-footer-form">
+        <input type="email" placeholder="Enter your email" />
+        <button type="submit">Subscribe</button>
+      </form>
+  
+      <small>
+        By subscribing, you agree to our
+        <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+      </small>
+    </div>
+  
+    <!-- LINKS -->
+    <div class="gx-footer-links">
+      <div class="gx-footer-col logo">
+        <div class="gx-footer-logo">Logo</div>
+      </div>
+  
+      <div class="gx-footer-col">
+        <h4>For users</h4>
+        <a href="#">Find gyms</a>
+        <a href="#">Pricing</a>
+        <a href="#">How it works</a>
+        <a href="#">Reviews</a>
+        <a href="#">FAQ</a>
+      </div>
+  
+      <div class="gx-footer-col">
+        <h4>For owners</h4>
+        <a href="#">List your gym</a>
+        <a href="#">Dashboard</a>
+        <a href="#">Earnings</a>
+        <a href="#">Analytics</a>
+        <a href="#">Support</a>
+      </div>
+  
+      <div class="gx-footer-col">
+        <h4>Company</h4>
+        <a href="#">About us</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+        <a href="#">Contact</a>
+      </div>
+  
+      <div class="gx-footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms of service</a>
+        <a href="#">Cookie policy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Sitemap</a>
+      </div>
+  
+      <div class="gx-footer-col">
+        <h4>Resources</h4>
+        <a href="#">Help center</a>
+        <a href="#">Community</a>
+        <a href="#">Partnerships</a>
+        <a href="#">Affiliates</a>
+        <a href="#">API docs</a>
+      </div>
+    </div>
+  
+    <!-- BOTTOM -->
+    <div class="gx-footer-bottom">
+      <span>© 2025 GymKhana. All rights reserved.</span>
+  
+      <div class="gx-footer-social">
+        <a href="#">⨉</a>
+        <a href="#">◎</a>
+        <a href="#">in</a>
+        <a href="#">▶</a>
+      </div>
+    </div>
+  </footer>
+  
+
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      /* CTA BUTTONS */
+      const joinBtn = document.getElementById("joinBtn");
+      const listBtn = document.getElementById("listBtn");
+  
+      if (joinBtn) {
+        joinBtn.addEventListener("click", () => {
+          alert("Join GymKhana – Coming Soon!");
+        });
+      }
+  
+      if (listBtn) {
+        listBtn.addEventListener("click", () => {
+          alert("List Your Gym – Coming Soon!");
+        });
+      }
+  
+      /* REVEAL ANIMATIONS */
+      const revealObserver = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+  
+      document
+        .querySelectorAll(".reveal")
+        .forEach(el => revealObserver.observe(el));
+  
+      /* SPINE LINE ANIMATION */
+      const spine = document.querySelector(".spine-line");
+  
+      if (spine) {
+        const spineObserver = new IntersectionObserver(
+          entries => {
+            if (entries[0].isIntersecting) {
+              spine.classList.add("active");
+              spineObserver.unobserve(spine);
+            }
+          },
+          { threshold: 0.4 }
+        );
+  
+        spineObserver.observe(spine);
+      }
+    });
+    const processCards = document.querySelectorAll(".process-card");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          processCards.forEach(c => c.classList.remove("active"));
+          entry.target.classList.add("active");
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  processCards.forEach(card => observer.observe(card));
+  
+  const items = document.querySelectorAll('.users-alt-item');
+  const preview = document.querySelector('.users-alt-preview img');
+
+  items.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      items.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      preview.src = item.dataset.img;
+    });
+  });
+  </script>
+  
+  </html>
+  
